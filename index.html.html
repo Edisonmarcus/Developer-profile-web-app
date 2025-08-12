@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #0d1b2a;
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      width: 400px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .form-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    label {
+      width: 80px;
+      text-align: right;
+      padding-right: 10px;
+    }
+
+    input {
+      width: 200px;
+      padding: 5px;
+    }
+
+    .button-container {
+      text-align: right; 
+    }
+
+    button {
+      padding: 8px 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <div class="form-group">
+      <label for="fname">FNAME:</label>
+      <input type="text" id="fname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="lname">LNAME:</label>
+      <input type="text" id="lname" required>
+    </div>
+
+    <div class="button-container">
+      <button id="one" onclick="method()">BUTTON</button>
+    </div>
+  </div>
+
+<script>
+  function method(){
+    const fname = document.getElementById("fname").value;
+    const lname = document.getElementById("lname").value;
+    if (fname !== "" && lname !== "") {
+      window.location.href = "second.html"; 
+    } else {
+      alert("PLEASE FILL THE FORM");
+    }
+  }
+</script>
+
+</body>
+</html>

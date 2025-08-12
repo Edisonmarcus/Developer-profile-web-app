@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EDISON.COM</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('edddi.png');
+      background-size: cover;
+      background-position: center 20%;
+      background-repeat: no-repeat;
+      height: 100vh;
+      color: white;
+      padding-top: 80px;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(0, 119, 192, 0.7);
+      padding: 10px 20px;
+      z-index: 10;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-center {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+      cursor: pointer;
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: white;
+      display: none;
+      min-width: 150px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      color: #0077C0;
+      padding: 10px 15px;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover > a {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      background: rgba(0,0,0,0.4);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .content-section {
+      display: none;
+      background: rgba(0, 0, 0, 0.6);
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-left">
+      <div class="dropdown">
+        <a>Home</a>
+        <div class="dropdown-content">
+          <a onclick="showContent('intro')">Intro</a>
+          <a onclick="showContent('overview')">Overview</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a>Skills</a>
+        <div class="dropdown-content">
+          <a onclick="showContent('html')">HTML</a>
+          <a onclick="showContent('css')">CSS</a>
+          <a onclick="showContent('js')">JavaScript</a>
+          <a onclick="showContent('react')">React</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a>About</a>
+        <div class="dropdown-content">
+          <a onclick="showContent('story')">My Story</a>
+          <a onclick="showContent('education')">Education</a>
+          <a onclick="showContent('hobbies')">Hobbies</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-center">
+      EDISON
+    </div>
+
+    <div class="nav-right">
+      <div class="dropdown">
+        <a>Contact</a>
+        <div class="dropdown-content">
+          <a onclick="showContent('phone')">Phone</a>
+          <a onclick="showContent('email')">Email</a>
+          <a onclick="showContent('social')">Social</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a>More</a>
+        <div class="dropdown-content">
+          <a onclick="showContent('resume')">Resume</a>
+          <a onclick="showContent('projects')">Projects</a>
+          <a onclick="showContent('gallery')">Gallery</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Welcome, I'm Edison!</h1>
+  </div>
+
+  <div id="intro" class="content-section"><p>Hi! I'm Edison from Dharmapuri, learning web development with a goal to become a software developer.</p></div>
+  <div id="overview" class="content-section"><p>This website showcases my portfolio, skills, and more about me.</p></div>
+  <div id="html" class="content-section"><p>I love writing clean HTML for well-structured web pages.</p></div>
+  <div id="css" class="content-section"><p>CSS helps me design beautiful, responsive layouts.</p></div>
+  <div id="js" class="content-section"><p>JavaScript brings interactivity and life to my websites.</p></div>
+  <div id="react" class="content-section"><p>React is my go-to library for building dynamic UIs.</p></div>
+  <div id="story" class="content-section"><p>I started learning coding at a young age and love creating things online.</p></div>
+  <div id="education" class="content-section"><p>I have a background in Computer Science and continuous self-learning.</p></div>
+  <div id="hobbies" class="content-section"><p>Outside coding, I enjoy music, tech gadgets, and reading.</p></div>
+  <div id="phone" class="content-section"><p>You can reach me at: +91-7806999027</p></div>
+  <div id="email" class="content-section"><p>Email me at: edisonmca14@gmail.com</p></div>
+  <div id="social" class="content-section"><p>Connect with me on LinkedIn, GitHub, and Instagram.</p></div>
+  <div id="resume" class="content-section"><p>My resume includes experience in front-end development.</p></div>
+  <div id="projects" class="content-section"><p>I’ve built multiple projects including websites, games, and tools.</p></div>
+  <div id="gallery" class="content-section"><p>My gallery features screenshots of my work and creative designs.</p></div>
+
+  <script>
+    function showContent(id) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(sec => sec.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+  </script>
+</body>
+</html>
